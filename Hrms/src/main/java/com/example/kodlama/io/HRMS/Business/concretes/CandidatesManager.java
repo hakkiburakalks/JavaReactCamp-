@@ -28,6 +28,7 @@ import com.example.kodlama.io.HRMS.Entities.concretes.User;
 
 @Service
 public class CandidatesManager implements CandidatesService {
+	
 	private CandidatesDao candidateDao;
 	private EMailVerifacationCodeService verificationCodeService;
 	private UserService userService;
@@ -64,6 +65,7 @@ public class CandidatesManager implements CandidatesService {
 				);
 		if(!engine.isSuccess()) {
 			return new ErrorDataResult(null,engine.getMessage());
+			
 		}
 		
 		User savedUser = this.userService.add(candidate);
@@ -140,18 +142,6 @@ public class CandidatesManager implements CandidatesService {
 	    }
 
 
-		@Override
-		public DataResult<List<Candidates>> findByAllEmail(String email) {
-					
-			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllEmail(email),"Data Listelendi");
-		}
-
-
-		@Override
-		public DataResult<Candidates> findByEmail(String email) {
-			return new SuccessDataResult<Candidates>(this.candidateDao.findByEmail(email),"Data Listelendi");
-		}
-
 
 		@Override
 		public DataResult<Candidates> findByIdentificationNumber(String identificationNumber) {
@@ -161,13 +151,13 @@ public class CandidatesManager implements CandidatesService {
 
 		@Override
 		public DataResult<List<Candidates>> findByAllIdentificationNumber(String identificationNumber) {
-			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllIdentificationNumber(identificationNumber),"Data Listelendi");
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findAllByIdentificationNumber(identificationNumber),"Data Listelendi");
 		}
 
 
 		@Override
 		public DataResult<List<Candidates>> findByAllFirstName(String firstName) {
-			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllFirstName(firstName),"Data Listelendi");
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findAllByFirstName(firstName),"Data Listelendi");
 		}
 
 
@@ -179,7 +169,7 @@ public class CandidatesManager implements CandidatesService {
 
 		@Override
 		public DataResult<List<Candidates>> findByAllLastName(String lastName) {
-			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllLastName(lastName),"Data Listelendi");
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findAllByLastName(lastName),"Data Listelendi");
 		}
 
 

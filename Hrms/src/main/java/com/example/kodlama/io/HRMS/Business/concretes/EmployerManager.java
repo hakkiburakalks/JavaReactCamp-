@@ -119,7 +119,7 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public DataResult<List<Employer>> findByAllCompanyName(String companyName) {
-		return new SuccessDataResult<List<Employer>>(this.employerDao.findByAllCompanyName(companyName),"Data Listelendi");
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findAllByCompanyName(companyName),"Data Listelendi");
 	}
 
 	@Override
@@ -129,6 +129,6 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public DataResult<List<Employer>> findByAllWebAdress(String webAdress) {
-		return new SuccessDataResult<List<Employer>>(this.employerDao.findByAllWebAdress(webAdress),"Data Listelendi");
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findAllByWebAdress(webAdress),"Data Listelendi");
 	}
 }

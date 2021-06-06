@@ -13,9 +13,9 @@ import com.example.kodlama.io.HRMS.Entities.concretes.JobAdvertisement;
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Integer> {
     List<JobAdvertisement> findByEmployerId(int employerId);
 	
-	List<JobAdvertisement> findByAllIsActive(boolean isActive);
+	List<JobAdvertisement> findAllByIsActive(boolean isActive);
 	
-	List<JobAdvertisement> findByAllIsActiveOrderByCreatedDateDesc(boolean isActive);
+	List<JobAdvertisement> findAllByIsActiveOrderByCreatedDateDesc(boolean isActive);
 	
 	@Query("From JobAdvertisement where isActive = true and employer_id =:id")
 	List<JobAdvertisement> findEmployersActiveJobAdvertisement(int id);

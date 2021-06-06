@@ -141,12 +141,12 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 
 	@Override
 	public DataResult<List<JobAdvertisement>> findByAllIsActive(boolean isActive) {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByAllIsActive(isActive),"Data Listelendi");
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByIsActive(isActive),"Data Listelendi");
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> findByAllIsActiveOrderByCreatedDateDesc(boolean isActive) {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByAllIsActiveOrderByCreatedDateDesc(isActive),"Data Listelendi");
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByIsActiveOrderByCreatedDateDesc(isActive),"Data Listelendi");
 		
 	}
 }

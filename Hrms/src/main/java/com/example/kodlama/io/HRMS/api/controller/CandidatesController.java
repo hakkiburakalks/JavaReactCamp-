@@ -30,15 +30,7 @@ public class CandidatesController {
 		return this.candidateService.getAll();
 	}
 	
-	@GetMapping("/getByAllMail")
-	public DataResult<List<Candidates>> getByAllEmail(String email) {
-		
-		return this.candidateService.findByAllEmail(email);
-	}
-	@GetMapping("/getByEmail")
-	public DataResult<Candidates> getByEmail(String email) {
-		return this.candidateService.findByEmail(email);
-	}
+	
 	@GetMapping("/getByIdentificationNumber")
 	public DataResult<Candidates> getByIdentificationNumber(String identificationNumber) {
 		return this.candidateService.findByIdentificationNumber(identificationNumber);

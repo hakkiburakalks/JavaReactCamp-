@@ -10,9 +10,9 @@ public interface EmployerDao extends JpaRepository<Employer, Integer> {
 
 	
 	Employer findByCompanyName(String companyName);
-	List<Employer> findByAllCompanyName(String companyName);
+	List<Employer> findAllByCompanyName(String companyName);
 	Employer findByWebAdress(String webAdress);
-	List<Employer> findByAllWebAdress(String webAdress);
+	List<Employer> findAllByWebAdress(String webAdress);
 	
 	
 }

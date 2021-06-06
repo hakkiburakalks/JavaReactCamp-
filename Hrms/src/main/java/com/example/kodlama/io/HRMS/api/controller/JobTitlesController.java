@@ -22,7 +22,7 @@ private JobTitleService jobTitleService;
 		this.jobTitleService = jobTitleService;
 	}
 	
-	@GetMapping("getall")
+	@GetMapping("/getall")
 	public DataResult<List<JobTitle>> getAll(){
 		return jobTitleService.getAll();
 	}
