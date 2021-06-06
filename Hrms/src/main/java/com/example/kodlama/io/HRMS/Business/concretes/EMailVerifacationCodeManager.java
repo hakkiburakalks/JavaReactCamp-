@@ -13,7 +13,7 @@ import com.example.kodlama.io.HRMS.Core.utulities.Result.SuccessDataResult;
 import com.example.kodlama.io.HRMS.DataAcces.abstracts.EMailVerifacationCodeDao;
 import com.example.kodlama.io.HRMS.Entities.concretes.EMailVerifacationCode;
 
-
+@Service
 public class EMailVerifacationCodeManager implements EMailVerifacationCodeService {
 
 
