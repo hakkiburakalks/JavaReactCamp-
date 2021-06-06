@@ -1,10 +1,14 @@
 package com.example.kodlama.io.HRMS.Entities.concretes;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,10 +18,11 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper=false) 
 @Entity
-@Table(name = "employers")
+
 @AllArgsConstructor
 @NoArgsConstructor
-
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisement"})
+@Table(name = "employers")
 public class Employer  extends User{
 
 	@Column(name="company_name")
@@ -27,4 +32,9 @@ public class Employer  extends User{
 	
 	@Column(name="phone_number")
 	private String phoneNumber;
+	
+	
+	@OneToMany(mappedBy = "employer")
+	private List<JobAdvertisement> jobAdvertisement;
+	
 }

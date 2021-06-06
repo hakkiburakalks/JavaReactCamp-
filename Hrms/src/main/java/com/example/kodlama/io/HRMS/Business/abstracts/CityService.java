@@ -7,6 +7,6 @@ import com.example.kodlama.io.HRMS.Entities.concretes.City;
 
 
 public interface CityService {
-	DataResult<List<City>> getAll();
+	DataResult<List<City>> findAll();
 	DataResult<City> add(City city);
 }

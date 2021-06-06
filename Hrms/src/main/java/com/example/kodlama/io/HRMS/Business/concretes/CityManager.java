@@ -16,6 +16,8 @@ import com.example.kodlama.io.HRMS.Core.utulities.Result.SuccessResult;
 import com.example.kodlama.io.HRMS.DataAcces.abstracts.CityDao;
 import com.example.kodlama.io.HRMS.Entities.concretes.City;
 
+import net.bytebuddy.asm.Advice.This;
+
 
 @Service
 public class CityManager implements CityService{
@@ -26,11 +28,8 @@ public class CityManager implements CityService{
 		this.cityDao = cityDao;
 	}
 
-	@Override
-	public DataResult<List<City>> getAll() {
-		return new SuccessDataResult<List<City>>(this.cityDao.findAll(), "Data Listelendi");
-	}
-       
+    
+  
 	
 	private Result cityNameChecker(City city) {
 		
@@ -54,6 +53,14 @@ public class CityManager implements CityService{
 		}
 		return new SuccessDataResult<City>
 		(this.cityDao.save(city),"Başarılı şekilde eklendi.");
+	}
+
+
+
+
+	@Override
+	public DataResult<List<City>> findAll() {
+		return new SuccessDataResult<List<City>>(this.cityDao.findAll(), "Data listelendi");
 	}
 
 }

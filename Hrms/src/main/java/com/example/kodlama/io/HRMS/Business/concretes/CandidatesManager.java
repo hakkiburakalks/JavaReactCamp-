@@ -1,6 +1,7 @@
 package com.example.kodlama.io.HRMS.Business.concretes;
 
 
+import java.sql.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +23,7 @@ import com.example.kodlama.io.HRMS.DataAcces.abstracts.CandidatesDao;
 import com.example.kodlama.io.HRMS.Entities.concretes.Candidates;
 import com.example.kodlama.io.HRMS.Entities.concretes.EMailVerifacationCode;
 import com.example.kodlama.io.HRMS.Entities.concretes.User;
+
 
 
 @Service
@@ -136,7 +138,65 @@ public class CandidatesManager implements CandidatesService {
 	    	}
 	    	return new SuccessResult();
 	    }
-	  
+
+
+		@Override
+		public DataResult<List<Candidates>> findByAllEmail(String email) {
+					
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllEmail(email),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<Candidates> findByEmail(String email) {
+			return new SuccessDataResult<Candidates>(this.candidateDao.findByEmail(email),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<Candidates> findByIdentificationNumber(String identificationNumber) {
+			return new SuccessDataResult<Candidates>(this.candidateDao.findByIdentificationNumber(identificationNumber),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByAllIdentificationNumber(String identificationNumber) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllIdentificationNumber(identificationNumber),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByAllFirstName(String firstName) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllFirstName(firstName),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByFirstNameAndIdentificationNumber(String firstName,	String identificationNumber) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByFirstNameAndIdentificationNumber(firstName, identificationNumber),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByAllLastName(String lastName) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByAllLastName(lastName),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByLastNameAndIdentificationNumber(String lastName,
+				String identificationNumber) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByLastNameAndIdentificationNumber(lastName, identificationNumber),"Data Listelendi");
+		}
+
+
+		@Override
+		public DataResult<List<Candidates>> findByFirstNameAndLastName(String firstName, String lastName) {
+			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByFirstNameAndLastName(firstName, lastName),"Data Listelendi");
+		}
+
+
+	
 	    		
 	    		
 		

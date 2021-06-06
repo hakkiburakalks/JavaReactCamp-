@@ -16,6 +16,8 @@ import com.example.kodlama.io.HRMS.DataAcces.abstracts.CityDao;
 import com.example.kodlama.io.HRMS.DataAcces.abstracts.EmployerDao;
 import com.example.kodlama.io.HRMS.DataAcces.abstracts.JobAdvertisementDao;
 import com.example.kodlama.io.HRMS.Entities.concretes.JobAdvertisement;
+
+
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService{
 
@@ -67,7 +69,7 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAll() {
+	public DataResult<List<JobAdvertisement>> findAll() {
 		
 		return new SuccessDataResult<List<JobAdvertisement>>
 		(jobAdvertisementDao.findAll(),"Data listelendi.");
@@ -129,5 +131,22 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 			return new ErrorResult("Son başvuru tarihi girilmek zorundadır");
 		}
 		return new SuccessResult();
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByEmployerId(int employerId) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByEmployerId(employerId),"Data Listelendi");
+		
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByAllIsActive(boolean isActive) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByAllIsActive(isActive),"Data Listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByAllIsActiveOrderByCreatedDateDesc(boolean isActive) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByAllIsActiveOrderByCreatedDateDesc(isActive),"Data Listelendi");
+		
 	}
 }

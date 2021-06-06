@@ -49,7 +49,7 @@ public class EmployerManager implements EmployerService {
 		}
 		
 		User savedUser = this.userService.add(employer);
-		//this.verificationCodeService.generateCode(new EMailVerifacationCode(),savedUser.getId());
+		this.verificationCodeService.generateCode(new EMailVerifacationCode(),savedUser.getId());
 		return new SuccessDataResult<Employer>(this.employerDao.save(employer),
 				"İş Veren Hesabı Eklendi, Doğrulama Kodu Gönderildi ID:"+employer.getId());
 	}
@@ -110,5 +110,25 @@ public class EmployerManager implements EmployerService {
 		}
 		return new SuccessResult();
 		
+	}
+
+	@Override
+	public DataResult<Employer> findByCompanyName(String companyName) {
+		return new SuccessDataResult<Employer>(this.employerDao.findByCompanyName(companyName), "Data Listelendi");
+	}
+
+	@Override
+	public DataResult<List<Employer>> findByAllCompanyName(String companyName) {
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findByAllCompanyName(companyName),"Data Listelendi");
+	}
+
+	@Override
+	public DataResult<Employer> findByWebAdress(String webAdress) {
+		return new SuccessDataResult<Employer>(this.employerDao.findByWebAdress(webAdress),"Data Listelendi");
+	}
+
+	@Override
+	public DataResult<List<Employer>> findByAllWebAdress(String webAdress) {
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findByAllWebAdress(webAdress),"Data Listelendi");
 	}
 }

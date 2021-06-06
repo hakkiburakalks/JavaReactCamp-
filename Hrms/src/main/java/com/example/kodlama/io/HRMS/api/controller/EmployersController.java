@@ -26,4 +26,25 @@ public class EmployersController {
 	public DataResult <List<Employer>> getAll(){
 		return this.employerService.getAll();
 	}
+	@GetMapping("/getByCompanyName")
+	public DataResult<Employer> getByCompanyName(String companyName){
+		return this.employerService.findByCompanyName(companyName);
+	}
+	@GetMapping("/getByAllCompanyName")
+	public DataResult<List<Employer>> getByAllCompanyName(String companyName){
+	    return this.employerService.findByAllCompanyName(companyName);
+		
+	}
+		@GetMapping("/getByWebAdress")
+	DataResult<Employer> getByWebAdress(String webAdress){
+		return this.employerService.findByWebAdress(webAdress);
+	}
+
+	
+	@GetMapping("/getByAllWebAdress")
+	DataResult<List<Employer>> getByAllWebAdress(String webAdress){
+		return this.employerService.findByAllWebAdress(webAdress);
+	}
+		
 }
+

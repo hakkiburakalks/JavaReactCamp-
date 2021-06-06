@@ -3,6 +3,7 @@ package com.example.kodlama.io.HRMS.Business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.kodlama.io.HRMS.Business.abstracts.EMailVerifacationCodeService;
 import com.example.kodlama.io.HRMS.Core.Validation.RandomCodeGenerator;
@@ -12,6 +13,7 @@ import com.example.kodlama.io.HRMS.Core.utulities.Result.Result;
 import com.example.kodlama.io.HRMS.Core.utulities.Result.SuccessDataResult;
 import com.example.kodlama.io.HRMS.DataAcces.abstracts.EMailVerifacationCodeDao;
 import com.example.kodlama.io.HRMS.Entities.concretes.EMailVerifacationCode;
+
 
 @Service
 public class EMailVerifacationCodeManager implements EMailVerifacationCodeService {
@@ -62,5 +64,6 @@ public class EMailVerifacationCodeManager implements EMailVerifacationCodeServic
 		(null,"Doğrulama Kodu Geçersiz");
 
 	}
+
 	
 }

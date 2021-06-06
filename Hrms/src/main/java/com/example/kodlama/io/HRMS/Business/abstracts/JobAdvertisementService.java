@@ -13,6 +13,12 @@ public interface JobAdvertisementService {
 	Result add(JobAdvertisement jobAdvertisement);
 	Result update(JobAdvertisement jobAdvertisement);
 	Result delete(JobAdvertisement jobAdvertisement);
-	DataResult<List<JobAdvertisement>> getAll();
+	DataResult<List<JobAdvertisement>> findAll();
+	
+	DataResult<List<JobAdvertisement>> findByEmployerId(int employerId);
+		
+	DataResult<List<JobAdvertisement>> findByAllIsActive(boolean isActive);
+		
+	DataResult<List<JobAdvertisement>> findByAllIsActiveOrderByCreatedDateDesc(boolean isActive);
 	
 }

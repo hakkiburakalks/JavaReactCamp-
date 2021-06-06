@@ -23,7 +23,7 @@ public class CityController {
 
 	@GetMapping("/getall")
 	public DataResult<List<City>> getAll(){
-		return this.cityService.getAll();
+		return this.cityService.findAll();
 	}
 	
 	@PostMapping("/add")
