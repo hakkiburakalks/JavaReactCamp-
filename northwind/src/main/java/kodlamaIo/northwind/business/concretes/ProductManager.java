@@ -15,6 +15,8 @@ import kodlamaIo.northwind.core.utilities.results.SuccessDataResult;
 import kodlamaIo.northwind.core.utilities.results.SuccessResult;
 import kodlamaIo.northwind.dataAccess.abstracts.ProductDao;
 import kodlamaIo.northwind.entities.concretes.Product;
+import kodlamaIo.northwind.entities.dtos.ProductWithCategoryDto;
+
 
 
 @Service
@@ -99,6 +101,13 @@ private ProductDao productDao;
 		Sort sort = Sort.by(Sort.Direction.DESC,"productName");
 		return new SuccessDataResult<List<Product>>
 		(this.productDao.findAll(sort),"Başarılı");
+	}
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+		
+		return new SuccessDataResult<List<ProductWithCategoryDto>>
+		(this.productDao.getProductWithCategoryDetails(),"Data Listelendi");
 	}
 
 }

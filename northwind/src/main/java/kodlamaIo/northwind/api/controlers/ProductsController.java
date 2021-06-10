@@ -12,6 +12,7 @@ import kodlamaIo.northwind.business.abstracts.ProductService;
 import kodlamaIo.northwind.core.utilities.results.DataResult;
 import kodlamaIo.northwind.core.utilities.results.Result;
 import kodlamaIo.northwind.entities.concretes.Product;
+import kodlamaIo.northwind.entities.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 @RestController
@@ -67,5 +68,9 @@ public class ProductsController {
 		return this.productservice.getAllSorted();
 	}
 	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productservice.getProductWithCategoryDetails();
+	}
 	
 }
