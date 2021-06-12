@@ -16,8 +16,7 @@ public interface CandidatesService {
 	
 	
 	
-	DataResult<List<Candidates>> findByAllEmail(String email);
-	DataResult<Candidates> findByEmail(String email);
+	
 	DataResult<Candidates> findByIdentificationNumber(String identificationNumber);
 	DataResult<List<Candidates>> findByAllIdentificationNumber(String identificationNumber);
 	DataResult<List<Candidates>> findByAllFirstName(String firstName);

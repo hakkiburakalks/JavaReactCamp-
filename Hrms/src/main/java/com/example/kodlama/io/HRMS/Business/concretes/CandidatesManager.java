@@ -181,10 +181,12 @@ public class CandidatesManager implements CandidatesService {
 
 
 		@Override
-		public DataResult<List<Candidates>> findByFirstNameAndLastName(String firstName, String lastName) {
+		public DataResult <List<Candidates>> findByFirstNameAndLastName(String firstName, String lastName) {
 			return new SuccessDataResult<List<Candidates>>(this.candidateDao.findByFirstNameAndLastName(firstName, lastName),"Data Listelendi");
 		}
 
+
+		
 
 	
 	    		
